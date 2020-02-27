@@ -20,24 +20,34 @@ def gross_for_director(d)
     total += d[:movies][index][:worldwide_gross]
     index += 1
   end
-
   total
 end
 
 def list_of_directors(source)
-  # Write this implementation
+  array=[]
+  n=0
+  while n < source.length
+  array[n]= source[n][:name]
+  n+=1
+end
+  array
 end
 
 def total_gross(source)
-  # Write this implementation
-  #
   # Should use methods:
   # 1. directors_totals: returns a Hash of { dir_name => gross }
   # 2. list_of_directors: names provides an Array of directors names (use
-  #
   # Visit each key (i.e. director name), look up the value in the hash
-  # returned by directors_totals, and add it to a running total. When done,
-  # return the total
+  # returned by directors_totals, and add it to a running total.
+  total=0
+  n=0
+ names=list_of_directors(source)
+  arr=directors_totals(source)
+  while n< names.length
+  total+=arr[names[n]]
+  n+=1
+end
+total
 end
 
 
